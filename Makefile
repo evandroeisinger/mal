@@ -10,7 +10,7 @@ PYTHON = python
 # Settings
 #
 
-IMPLS = bash c clojure coffee cpp crystal cs erlang factor forth go groovy \
+IMPLS = lhama bash c clojure coffee cpp crystal cs erlang factor forth go groovy \
 	haskell java julia js lua make mal ocaml matlab miniMAL nim \
 	perl php ps python r racket rpython ruby rust scala swift vb guile
 
@@ -53,6 +53,7 @@ EXCLUDE_PERFS = perf^mal  # TODO: fix this
 
 STEP_TEST_FILES = $(strip $(wildcard $(1)/tests/$($(2)).mal) $(wildcard tests/$($(2)).mal))
 
+lhama_STEP_TO_PROG =   lhama/$($(1)).lh
 bash_STEP_TO_PROG =    bash/$($(1)).sh
 c_STEP_TO_PROG =       c/$($(1))
 clojure_STEP_TO_PROG = clojure/src/$($(1)).clj
@@ -96,6 +97,7 @@ noop =
 SPACE = $(noop) $(noop)
 export FACTOR_ROOTS := src
 
+lhama_RUNSTEP =  ../$(2) $(3)
 bash_RUNSTEP =    bash ../$(2) $(3)
 c_RUNSTEP =       ../$(2) $(3)
 clojure_RUNSTEP = lein with-profile +$(1) trampoline run $(3)
