@@ -1,0 +1,23 @@
+#!/usr/bin/env ruby
+
+require "readline"
+
+def READ(data)
+  data
+end
+
+def EVAL(data)
+  data
+end
+
+def PRINT(data)
+  data
+end
+
+def process(data)
+  PRINT(EVAL(READ(data)))
+end
+
+while data = Readline.readline("user> ", false)
+  puts process data if data.length > 0
+end
